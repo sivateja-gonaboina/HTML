@@ -1,0 +1,27 @@
+<html>
+<head>
+<title>Geolocation Demo</title>
+</head>
+<body>
+<button onclick="getLocation()">Track location</button>
+<div id="geo"/>
+<script>
+function getLocation()
+{
+ if(navigator.geolocation)
+ {
+  navigator.geolocation.getCurrentPosition(showPosition);
+ }
+ else
+ {
+  document.getElementById("geo").innerHTML="your current browser doesnot support geolocations";
+ }
+}
+function showPosition(pos)
+{
+ document.getElementById("geo").innerHTML="Latitude = "+pos.coords.latitude+"<br>Longitude = "+pos.coords.longitude+"<br>Altitude = "+pos.coords.altitude+"<br>Accuracy = "+pos.coords.accuracy+"<br>Speed = "+pos.coords.speed+"<br>DateTime = "+pos.coords.datetime;
+}
+</script>
+</div>
+</body>
+</html>
